@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+         version="3.0">
+    <context-param>
+        <param-name>partidos</param-name>
+        <param-value>Partido A,Partido B,Partido C,Partido D,Partido E,Partido F,Brancos, Nulos</param-value>
+    </context-param>
+    <context-param>
+        <param-name>partidos_coeficiente</param-name>
+        <param-value>Partido A,Partido B,Partido C,Partido D,Partido E,Partido F</param-value>
+    </context-param>
+</web-app>
