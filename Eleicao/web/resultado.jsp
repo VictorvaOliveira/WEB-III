@@ -21,12 +21,13 @@
             <legend>Resultado da eleição:</legend>
             <ul>
                 <c:forTokens items="${initParam['partidos']}" delims="," var="partidos" varStatus="status">
-                    <li>${partidos} &ndash;<span class="voto">&nbsp;</span><br />
+                    <li>Partido<span id="index"/> &ndash;<span class="voto">&nbsp;</span><br />
                         <meter min="0" max="100">&ndsp;</meter><span class="percent">&nbsp;</span>
                     </li>
                 </c:forTokens>
             </ul>
             <p>Total de votos:<span id="total">0</span>.</p>
+            
         </fieldset>
     </body>
 </html>

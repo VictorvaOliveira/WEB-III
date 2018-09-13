@@ -1,7 +1,12 @@
 var ws;
 
 function verResultado(msg) {
-    var votos = JSON.parse(msg.data);
+    var votosArray = JSON.parse(msg.data);
+//    console.log("Antes:" + votosArray);
+//    console.log("Durante:" + votosArray.sort(function(a,b){return a-b;}));
+//    var votosArrayDesc = votosArray.reverse();
+//    console.log("Depois" + votosArrayDesc);
+    var votos = votosArray;
     var total = votos.reduce((a, b) => a + b, 0);
     var output = document.getElementById("output");
     for (var i = 0; i < votos.length; i++) {
@@ -42,8 +47,14 @@ function votar() {
 
 function iniciarVotacao() {
 
+    var start = $("#start");
+    var stop = $("#pararVotacao");
     $("#output").hide();
-    $("#start").click(function () {
+    $("#cadeiras").hide();
+    start.click(function () {
+        $(this).attr("disabled", "disabled");
+        stop.removeAttr("disabled");
+        //
         var wsUri = "ws://" + document.location.host + document.location.pathname + "urna";
         ws = new WebSocket(wsUri);
         console.log(wsUri);
@@ -51,7 +62,14 @@ function iniciarVotacao() {
         //FUNÇÕES A SEREM INICIALIZADAS
         $("#iniciando").hide();
         $("#output").show();
-        setInterval("votar()", 10*1000);
+        $("#cadeiras").show();
+        setInterval("votar()", 1000);
+    });
+
+    stop.click(function () {
+        $(this).attr("disabled", "disabled");
+        start.removeAttr("disabled");
+        ws.close;
     });
 }
 onload = iniciarVotacao;

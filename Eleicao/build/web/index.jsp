@@ -32,6 +32,7 @@
                 </c:forTokens>
             </ul>
             <p>Total de votos:&nbsp;<span id="total">0</span>.</p>
+            <button id="pararVotacao" type="submit" >Parar Votação</button>
         </fieldset>
         <fieldset id="cadeiras">
             <legend>Cadeiras obtidas na câmara</legend>
