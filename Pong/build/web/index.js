@@ -186,20 +186,10 @@ this.jogar = function (msg) {
 }
 ;
 
-function close() {
-    ws.close();
-}
-function send() {
+function onOpen() {
     ws.send("jogador");
 }
 
-function prepare() {
-    grid = document.querySelectorAll("tbody tr td");
-    for (let i = 0; i <= 1; i++) {
-        var item = grid[i];
-        item.onclick = send;
-    }
-}
 function init() {
 
     $("#tabela_jogo").hide();
@@ -208,6 +198,7 @@ function init() {
         var wsUri = "ws://" + document.location.host + document.location.pathname + "sala/" + this.value;
         ws = new WebSocket(wsUri);
         ws.onmessage = jogar;
+        ws.onopen = onOpen;
         $("#tabela_jogo").show();
         $("#login_botao").hide();
 
@@ -215,6 +206,5 @@ function init() {
     $("#logout").click(function () {
         alert();
     });
-    prepare();
 }
 onload = init;

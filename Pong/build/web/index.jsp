@@ -21,12 +21,6 @@
             </fieldset>
         </div>
         <div id="tabela_jogo">
-            <table>
-                <tbody id="tb">
-                    <tr><td id="a">Iniciar</td></tr>
-                </tbody>
-            </table>
-            <br/>
         </div>
     </body>
 </html>
